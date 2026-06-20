@@ -4,9 +4,9 @@ import numpy as np
 
 class FAISSManager:
 
-    def __init__(self):
+    def __init__(self, dimension: int = 384):
 
-        self.dimension = 384
+        self.dimension = dimension
 
         self.index = faiss.IndexFlatL2(
             self.dimension
@@ -42,8 +42,8 @@ class FAISSManager:
 
     def search(
         self,
-        query_embedding,
-        k=5
+        query_embedding: np.ndarray,
+        k: int = 5
     ):
 
         distances, indices = self.index.search(
