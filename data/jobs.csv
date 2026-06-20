@@ -1,0 +1,5 @@
+title,company,location,skills,description,source
+AI Engineer,OpenAI,Remote,"Python,LLM,FastAPI","Build AI systems using LLMs and vector databases","LinkedIn"
+Machine Learning Engineer,Google,Bangalore,"Python,ML,MLOps","Develop and deploy machine learning models","Naukri"
+Data Scientist,Microsoft,Hyderabad,"Python,SQL,Statistics","Analyze data and build predictive models","Indeed"
+GenAI Engineer,Accenture,Mumbai,"Python,RAG,LangChain","Develop enterprise GenAI applications","LinkedIn"
