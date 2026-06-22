@@ -7,6 +7,7 @@ from app.database.db import engine
 from app.embeddings.embedding_model import EmbeddingModel
 from app.vectorstore.faiss_manager import FAISSManager
 from app.core.config import settings
+from app.mlops.mlflow_tracker import MLflowTracker
 
 
 def fetch_jobs():
@@ -51,6 +52,11 @@ def build_embeddings():
     embeddings = model.encode(
         texts,
         convert_to_numpy=True
+    )
+    MLflowTracker.log_embedding_run(
+    model_name=settings.EMBEDDING_MODEL,
+    num_jobs=len(jobs_df),
+    embedding_dimension=embeddings.shape[1]
     )
 
     print(

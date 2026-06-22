@@ -1,19 +1,18 @@
-from app.resume.skill_extractor import (
-    SkillExtractor
+
+from app.utils.skill_extractor import SkillExtractor
+
+text = """
+Python
+FastAPI
+Docker
+PostgreSQL
+Machine Learning
+LLM
+MLOps
+"""
+
+print(
+    SkillExtractor.extract_skills(
+        text
+    )
 )
-
-
-with open(
-    "data/sample_resume.txt",
-    "r",
-    encoding="utf-8"
-) as file:
-
-    resume_text = file.read()
-
-
-skills = SkillExtractor.extract_skills(
-    resume_text
-)
-
-print(skills)

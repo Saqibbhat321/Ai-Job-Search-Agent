@@ -30,6 +30,10 @@ class SkillExtractor:
             "python"
         ],
 
+        "sql": [
+            "sql"
+        ],
+
         "postgresql": [
             "postgresql",
             "postgres"
@@ -82,30 +86,14 @@ class SkillExtractor:
 
         "pandas": [
             "pandas"
-        ],
-
-        "sql": [
-            "sql"
         ]
     }
 
     @classmethod
-    def normalize_skill(cls, skill: str):
-
-        skill = skill.lower().strip()
-
-        for canonical_skill, aliases in cls.SKILL_ALIASES.items():
-
-            if skill == canonical_skill:
-                return canonical_skill
-
-            if skill in aliases:
-                return canonical_skill
-
-        return skill
-
-    @classmethod
-    def extract_skills(cls, text: str):
+    def extract_skills(
+        cls,
+        text: str
+    ):
 
         text = text.lower()
 
@@ -115,11 +103,21 @@ class SkillExtractor:
 
             for alias in aliases:
 
-                pattern = r"\b" + re.escape(alias) + r"\b"
+                pattern = (
+                    r"\b" +
+                    re.escape(alias) +
+                    r"\b"
+                )
 
-                if re.search(pattern, text):
-
-                    found_skills.add(canonical_skill)
+                if re.search(
+                    pattern,
+                    text
+                ):
+                    found_skills.add(
+                        canonical_skill
+                    )
                     break
 
-        return sorted(list(found_skills))
+        return sorted(
+            list(found_skills)
+        )

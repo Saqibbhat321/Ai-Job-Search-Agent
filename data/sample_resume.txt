@@ -1,17 +1,15 @@
 Saqib Rashid Bhat
 
 Skills:
+Skills:
 Python
 Machine Learning
-Deep Learning
-FastAPI
-SQL
+MLOps
+LLM
+Statistics
 Docker
+FastAPI
 PostgreSQL
 FAISS
 Sentence Transformers
-
-Projects:
-AI Job Search Agent
-Customer Churn Prediction
-RAG System
+sql
