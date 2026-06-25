@@ -2,30 +2,42 @@ class RoadmapService:
 
     ROADMAP = {
 
-        "llm": {
-            "topic": "Large Language Models",
+        "python": {
+            "topic": "Python",
             "resources": [
-                "HuggingFace Transformers",
-                "OpenAI API Concepts",
-                "Prompt Engineering"
+                "Python OOP",
+                "Advanced Python",
+                "Async Programming"
             ]
         },
 
-        "mlops": {
-            "topic": "MLOps",
+        "machine learning": {
+            "topic": "Machine Learning",
             "resources": [
-                "MLflow",
-                "Docker",
-                "Model Deployment"
+                "Scikit-Learn",
+                "Regression",
+                "Classification",
+                "Model Evaluation"
+            ]
+        },
+
+        "llm": {
+            "topic": "Large Language Models",
+            "resources": [
+                "Transformers",
+                "Prompt Engineering",
+                "LLM Fundamentals",
+                "OpenAI APIs"
             ]
         },
 
         "rag": {
             "topic": "Retrieval Augmented Generation",
             "resources": [
-                "LangChain",
+                "Embeddings",
                 "FAISS",
-                "Vector Databases"
+                "Vector Search",
+                "LangChain RAG"
             ]
         },
 
@@ -34,15 +46,26 @@ class RoadmapService:
             "resources": [
                 "Chains",
                 "Agents",
-                "Memory"
+                "Memory",
+                "Tools"
+            ]
+        },
+
+        "mlops": {
+            "topic": "MLOps",
+            "resources": [
+                "MLflow",
+                "Docker",
+                "CI/CD",
+                "Model Deployment"
             ]
         },
 
         "docker": {
             "topic": "Docker",
             "resources": [
+                "Docker Images",
                 "Containers",
-                "Images",
                 "Docker Compose"
             ]
         },
@@ -52,16 +75,32 @@ class RoadmapService:
             "resources": [
                 "Routing",
                 "Dependency Injection",
-                "Swagger Docs"
+                "Swagger",
+                "Deployment"
+            ]
+        },
+
+        "sql": {
+            "topic": "SQL",
+            "resources": [
+                "Joins",
+                "Indexes",
+                "Optimization"
+            ]
+        },
+
+        "postgresql": {
+            "topic": "PostgreSQL",
+            "resources": [
+                "Database Design",
+                "Transactions",
+                "Performance"
             ]
         }
     }
 
     @classmethod
-    def generate(
-        cls,
-        missing_skills
-    ):
+    def generate(cls, missing_skills):
 
         roadmap = []
 
@@ -69,8 +108,10 @@ class RoadmapService:
 
             if skill in cls.ROADMAP:
 
-                roadmap.append(
-                    cls.ROADMAP[skill]
-                )
+                roadmap.append({
+                    "skill": skill,
+                    "topic": cls.ROADMAP[skill]["topic"],
+                    "resources": cls.ROADMAP[skill]["resources"]
+                })
 
         return roadmap
