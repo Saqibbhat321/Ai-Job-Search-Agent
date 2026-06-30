@@ -20,6 +20,10 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+    LLM_PROVIDER: str = "ollama"
 
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
+
+    OLLAMA_MODEL: str = "qwen3:4b"
 
 settings = Settings()
